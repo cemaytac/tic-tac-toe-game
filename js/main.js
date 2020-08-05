@@ -33,8 +33,15 @@ const board, turn, winner;
 // This is where you should put the event listener
 // for a mouse-click
 
+
+
 /*------Functions------*/
 
+function initialize() {
+  board = [null, null, null, null, null, null, null, null, null];
+  turn = 1;
+  winner = null;
+}
 
 // Some functions you might choose to use:
 
