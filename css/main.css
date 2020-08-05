@@ -6,8 +6,8 @@
 
   section.board {
     display: grid;
-    grid-template-rows: repeat(3, 10vmin);
-    grid-template-columns: repeat(3, 10vmin);
+    grid-template-rows: repeat(3, 15vmin);
+    grid-template-columns: repeat(3, 15vmin);
     grid-gap: 0vmin;
   }
 
@@ -16,4 +16,15 @@
     font-size: 8vmin;
     text-align: center;
     vertical-align: middle;
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  button {
+    display: flex;
+    width: 80px;
+    justify-content: center;
   }

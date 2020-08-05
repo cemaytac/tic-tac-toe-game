@@ -26,13 +26,15 @@ const board, turn, winner;
 /*------Cached Element References------*/
 
 // You might choose to put your game status here
-
+const squares = document.querySelectorAll('td div');
+const message = document.querySelector('h1');
 
 /*------Event Listeners------*/
 
 // This is where you should put the event listener
 // for a mouse-click
-
+document.querySelector('table').addEventListener('click', handlePlayer);
+document.querySelector('button').addEventListener('click', initialize);
 
 
 /*------Functions------*/
@@ -66,6 +68,17 @@ function render() {
   } else {
     message.innerHTML = `${lookup[turn].toUppercase()}'s turn`;
   }
+}
+
+function handlePlayer(event) {
+  // obtain the index of the square
+  const index = parseInt(event.target.id.replace('sq', ''));
+  if (board[index] || winner)
+    return;
+  board[index] = turn;
+  turn *= -1;
+  winner = getWinner();
+  render();
 }
 
 // Some functions you might choose to use:
