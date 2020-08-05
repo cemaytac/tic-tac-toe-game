@@ -43,6 +43,31 @@ function initialize() {
   winner = null;
 }
 
+function getWinner() {
+  // for loop to get length of all the winning combinations
+  for (let i = 0; i < winningCombos.length; i++) {
+    if (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
+      return board[winningCombos[i][0]];
+    // winning formula
+  }
+  if (board.includes(null)) {
+    return null;
+  } else return 'T';
+} // draw formula
+
+function render() {
+  board.forEach(function (sq, index) {
+    squares[index].style.background = lookup[sq];
+  });
+  if (winner === 'T') {
+    message.innerHTML = 'A draw! The worst and best result for both players.';
+  } else if (winner) {
+    message.innerHTML = `${lookup[turn].toUppercase()} has won!`;
+  } else {
+    message.innerHTML = `${lookup[turn].toUppercase()}'s turn`;
+  }
+}
+
 // Some functions you might choose to use:
 
 // Initialization function:
@@ -64,10 +89,6 @@ function initialize() {
 // Displays the current state of the board
 // on the page, updating the elements to reflect
 // either X or O depending on whose turn it is
-
-// 1) Define required constants
-
-// 2) Define required variables used to track the state of the game
 
 // 3) Store elements on the page that will be accessed in code more than once in variables to make code more concise, readable and performant.
 
